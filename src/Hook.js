@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function FuncDemo() {
   const [name, setName] = useState('Jules');
@@ -7,11 +7,27 @@ export default function FuncDemo() {
     setName(e.target.value);
   }
 
+  function handleColor() {
+    if (name === 'Maria') {
+      document.getElementsByClassName('form')[1].style.backgroundColor = 'red';
+    } else {
+      document.getElementsByClassName('form')[1].style.backgroundColor = 'white';
+    }
+  }
+
+  useEffect(() => {
+    document.title = name;
+  })
+
+  useEffect(() => {
+    handleColor();
+  })
+
   return (
 
     <section className='form'>
       <header>Yoooo, {name}</header>
-      <label>New code who this?:
+      <label>New code who this?
         <input
           value={name}
           onChange={handleInput}
@@ -20,5 +36,5 @@ export default function FuncDemo() {
     </section>
 
   )
-
 }
+

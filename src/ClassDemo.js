@@ -10,8 +10,26 @@ class ClassDemo extends React.Component {
     this.handleInput= this.handleInput.bind(this);
   }
 
+  componentDidMount() {
+    document.title = this.state.name;
+    this.handleColor();
+  }
+
+  componentDidUpdate() {
+    document.title = this.state.name;
+    this.handleColor();
+  }
+
   handleInput(e) {
     this.setState({ name: e.target.value });
+  }
+
+  handleColor() {
+    if (this.state.name === 'Maria') {
+      document.getElementsByClassName('form')[0].style.backgroundColor = 'red';
+    } else {
+      document.getElementsByClassName('form')[0].style.backgroundColor = 'white';
+    }
   }
 
   render() {
@@ -20,7 +38,7 @@ class ClassDemo extends React.Component {
 
       <section className='form'>
         <header>Salutations, {this.state.name}</header>
-        <label>Please provide your name: 
+        <label>Please provide your name 
           <input
             value={this.state.name}
             onChange={this.handleInput}
