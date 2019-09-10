@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 export default function FuncDemo() {
-  const [name, setName] = useState('Jules');
+  const [name, setName] = useState('');
 
   function handleInput(e) {
     setName(e.target.value);
   }
 
   function handleColor() {
-    if (name === 'Maria') {
+    if (name === 'Voldemort') {
       document.getElementsByClassName('form')[1].style.backgroundColor = 'red';
     } else {
       document.getElementsByClassName('form')[1].style.backgroundColor = 'white';
@@ -17,17 +17,17 @@ export default function FuncDemo() {
 
   useEffect(() => {
     document.title = name;
-  })
+  });
 
   useEffect(() => {
     handleColor();
-  })
+  });
 
   return (
 
     <section className='form'>
-      <header>Yoooo, {name}</header>
-      <label>New code who this?
+      <header>Welcome, {name}</header>
+      <label>Please provide your name 
         <input
           value={name}
           onChange={handleInput}

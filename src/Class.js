@@ -5,8 +5,8 @@ class ClassDemo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Julie Andrews',
-    }
+      name: '',
+    };
     this.handleInput= this.handleInput.bind(this);
   }
 
@@ -25,7 +25,7 @@ class ClassDemo extends React.Component {
   }
 
   handleColor() {
-    if (this.state.name === 'Maria') {
+    if (this.state.name === 'Voldemort') {
       document.getElementsByClassName('form')[0].style.backgroundColor = 'red';
     } else {
       document.getElementsByClassName('form')[0].style.backgroundColor = 'white';
@@ -37,7 +37,7 @@ class ClassDemo extends React.Component {
     return(
 
       <section className='form'>
-        <header>Salutations, {this.state.name}</header>
+        <header>Welcome, {this.state.name}</header>
         <label>Please provide your name 
           <input
             value={this.state.name}
